@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Challenge Editor</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/challenge-editor.css">
+</head>
+<body>
+  <div class="app">
+    <header class="toolbar">
+      <strong>Challenge Editor</strong>
+      <button id="btn-open" class="btn" title="Open a challenges.json file and save straight back to it (Chrome / Edge)">📂 Open file…</button>
+      <button id="btn-save" class="btn primary" disabled>💾 Save</button>
+      <button id="btn-download" class="btn" title="Download a copy of the JSON">⬇ Download</button>
+      <span id="status" class="status"></span>
+      <span class="spacer"></span>
+      <a class="btn" href="index.html">← Back to playground</a>
+    </header>
+
+    <div id="banner" class="banner hidden"></div>
+
+    <main class="ce-layout">
+      <aside class="ce-list">
+        <div class="ce-list-head">
+          <span>Challenges</span>
+          <button id="btn-add" class="btn small primary">+ New</button>
+        </div>
+        <ul id="list"></ul>
+      </aside>
+
+      <section id="form" class="ce-form"></section>
+    </main>
+  </div>
+
+  <script type="module" src="js/challenge-editor.js"></script>
+</body>
+</html>

@@ -1,0 +1,507 @@
+[
+  {
+    "name": "Can You Vote?",
+    "code": "# Get a number from the user and store it in a variable called age\n# If age is 18 or more\n#     print \"You are old enough to vote!\"\n# Otherwise\n#     print \"You are too young to vote.\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "20"
+        ],
+        "description": "Say you are old enough to vote",
+        "expect": "you are old enough to vote",
+        "reject": "too young"
+      },
+      {
+        "inputs": [
+          "17"
+        ],
+        "description": "Say you are too young to vote",
+        "expect": "you are too young to vote",
+        "reject": "old enough"
+      },
+      {
+        "inputs": [
+          "18"
+        ],
+        "description": "Say you are old enough to vote (18 is old enough!)",
+        "expect": "you are old enough to vote",
+        "reject": "too young"
+      }
+    ]
+  },
+  {
+    "name": "Guess the Number",
+    "code": "# Make a variable called secret and set it to 7\n# Ask the user to guess the number and store it in a variable called guess\n# Remember: input gives you text, so turn it into a whole number\n# If guess is equal to secret\n#     print \"You got it!\"\n# Otherwise\n#     print \"Not this time. The number was\" and then the secret number\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "7"
+        ],
+        "description": "Say \"You got it!\"",
+        "expect": "you got it",
+        "reject": "not this time"
+      },
+      {
+        "inputs": [
+          "3"
+        ],
+        "description": "Say \"Not this time. The number was 7\"",
+        "expect": "not this time the number was 7",
+        "reject": "you got it"
+      },
+      {
+        "inputs": [
+          "10"
+        ],
+        "description": "Say \"Not this time. The number was 7\"",
+        "expect": "not this time the number was 7",
+        "reject": "you got it"
+      }
+    ]
+  },
+  {
+    "name": "Times Table",
+    "code": "# Ask the user for a number and store it in a variable called number\n# Remember: input gives you text, so turn it into a whole number\n# Repeat for each value from 1 to 10\n#     work out number multiplied by the current value\n#     print the sum, for example: 3 x 4 = 12\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "3"
+        ],
+        "description": "Print the 3 times table: 3, 6, 9 ... 30",
+        "expect": [
+          "3",
+          "6",
+          "9",
+          "12",
+          "15",
+          "18",
+          "21",
+          "24",
+          "27",
+          "30"
+        ]
+      },
+      {
+        "inputs": [
+          "7"
+        ],
+        "description": "Print the 7 times table: 7, 14, 21 ... 70",
+        "expect": [
+          "7",
+          "14",
+          "21",
+          "28",
+          "35",
+          "42",
+          "49",
+          "56",
+          "63",
+          "70"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Even or Odd",
+    "code": "# Get a number from the user and store it in a variable called number\n# If number divided by 2 has nothing left over (use number % 2 == 0)\n#     print \"Even\"\n# Otherwise\n#     print \"Odd\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "4"
+        ],
+        "description": "Say Even",
+        "expect": "even",
+        "reject": "odd"
+      },
+      {
+        "inputs": [
+          "7"
+        ],
+        "description": "Say Odd",
+        "expect": "odd",
+        "reject": "even"
+      },
+      {
+        "inputs": [
+          "0"
+        ],
+        "description": "Say Even (0 is even!)",
+        "expect": "even",
+        "reject": "odd"
+      }
+    ]
+  },
+  {
+    "name": "Positive or Negative",
+    "code": "# Get a number from the user and store it in a variable called number\n# If number is bigger than 0\n#     print \"Positive\"\n# Otherwise, if number is less than 0\n#     print \"Negative\"\n# Otherwise\n#     print \"Zero\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "5"
+        ],
+        "description": "Say Positive",
+        "expect": "positive",
+        "reject": "negative"
+      },
+      {
+        "inputs": [
+          "-3"
+        ],
+        "description": "Say Negative",
+        "expect": "negative",
+        "reject": "positive"
+      },
+      {
+        "inputs": [
+          "0"
+        ],
+        "description": "Say Zero",
+        "expect": "zero"
+      }
+    ]
+  },
+  {
+    "name": "Secret Password",
+    "code": "# Ask the user for the password and store it in a variable called password\n# If password is equal to \"python\"\n#     print \"Access granted\"\n# Otherwise\n#     print \"Access denied\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "python"
+        ],
+        "description": "Say Access granted",
+        "expect": "access granted",
+        "reject": "denied"
+      },
+      {
+        "inputs": [
+          "java"
+        ],
+        "description": "Say Access denied",
+        "expect": "access denied",
+        "reject": "granted"
+      },
+      {
+        "inputs": [
+          "Python"
+        ],
+        "description": "Say Access denied (capital letters count!)",
+        "expect": "access denied",
+        "reject": "granted"
+      }
+    ]
+  },
+  {
+    "name": "Which Is Bigger?",
+    "code": "# Get a whole number from the user and store it in a variable called first\n# Get a second whole number and store it in a variable called second\n# If first is bigger than second\n#     print first\n# Otherwise\n#     print second\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "3",
+          "8"
+        ],
+        "description": "Print the bigger number, 8",
+        "expect": "8",
+        "reject": "3"
+      },
+      {
+        "inputs": [
+          "9",
+          "2"
+        ],
+        "description": "Print the bigger number, 9",
+        "expect": "9",
+        "reject": "2"
+      },
+      {
+        "inputs": [
+          "6",
+          "6"
+        ],
+        "description": "Print 6 when both numbers are the same",
+        "expect": "6"
+      }
+    ]
+  },
+  {
+    "name": "Count to Ten",
+    "code": "# Repeat for each number from 1 to 10 (use for number in range(1, 11))\n#     print the number\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print 1 to 10, one number per line",
+        "expect": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10"
+        ],
+        "reject": "11"
+      }
+    ]
+  },
+  {
+    "name": "Rocket Countdown",
+    "code": "# Make a variable called count and set it to 5\n# While count is bigger than 0\n#     print count\n#     take 1 away from count\n# After the loop, print \"Blast off!\"\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print 5, 4, 3, 2, 1 then Blast off!",
+        "expect": [
+          "5",
+          "4",
+          "3",
+          "2",
+          "1",
+          "blast off"
+        ],
+        "reject": "0"
+      }
+    ]
+  },
+  {
+    "name": "Say Hello Three Times",
+    "code": "# Repeat 3 times (use for i in range(3))\n#     print \"Hello!\"\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print Hello! exactly three times",
+        "expect": [
+          "hello",
+          "hello",
+          "hello"
+        ],
+        "reject": "hello hello hello hello"
+      }
+    ]
+  },
+  {
+    "name": "Add Up to Five",
+    "code": "# Make a variable called total and set it to 0\n# Repeat for each number from 1 to 5\n#     add the number to total\n# After the loop, print total (it should be 15)\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print 15",
+        "expect": "15"
+      }
+    ]
+  },
+  {
+    "name": "Fruit List",
+    "code": "# Make a list called fruits that holds \"apple\", \"banana\" and \"cherry\"\n# Repeat for each fruit in the list\n#     print the fruit\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print apple, banana and cherry",
+        "expect": [
+          "apple",
+          "banana",
+          "cherry"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Greet Your Friends",
+    "code": "# Make a list called friends that holds \"Sam\", \"Mia\" and \"Leo\"\n# Repeat for each name in the list\n#     print \"Hello\" followed by the name\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print Hello Sam, Hello Mia, Hello Leo",
+        "expect": [
+          "hello sam",
+          "hello mia",
+          "hello leo"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Double It",
+    "code": "# Make a variable called number and set it to 1\n# While number is less than 100\n#     print number\n#     make number twice as big (number = number * 2)\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print 1, 2, 4, 8, 16, 32, 64 and stop before 128",
+        "expect": [
+          "1",
+          "2",
+          "4",
+          "8",
+          "16",
+          "32",
+          "64"
+        ],
+        "reject": "128"
+      }
+    ]
+  },
+  {
+    "name": "Pass or Fail",
+    "code": "# Get a whole number from the user (their score) and store it in a variable called score\n# If score is 50 or more\n#     print \"Pass\"\n# Otherwise\n#     print \"Fail\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "75"
+        ],
+        "description": "Say Pass",
+        "expect": "pass",
+        "reject": "fail"
+      },
+      {
+        "inputs": [
+          "30"
+        ],
+        "description": "Say Fail",
+        "expect": "fail",
+        "reject": "pass"
+      },
+      {
+        "inputs": [
+          "50"
+        ],
+        "description": "Say Pass (50 is a pass!)",
+        "expect": "pass",
+        "reject": "fail"
+      }
+    ]
+  },
+  {
+    "name": "Hot or Cold",
+    "code": "# Get a whole number from the user (the temperature) and store it in a variable called temp\n# If temp is bigger than 25\n#     print \"It is hot\"\n# Otherwise, if temp is less than 10\n#     print \"It is cold\"\n# Otherwise\n#     print \"It is nice\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "30"
+        ],
+        "description": "Say It is hot",
+        "expect": "it is hot",
+        "reject": "cold"
+      },
+      {
+        "inputs": [
+          "5"
+        ],
+        "description": "Say It is cold",
+        "expect": "it is cold",
+        "reject": "hot"
+      },
+      {
+        "inputs": [
+          "18"
+        ],
+        "description": "Say It is nice",
+        "expect": "it is nice",
+        "reject": "hot"
+      }
+    ]
+  },
+  {
+    "name": "Keep Trying",
+    "code": "# Ask the user \"What is 2 + 2?\" and store the answer in a variable called answer\n# While answer is not \"4\"\n#     ask the question again and store the new answer in answer\n# After the loop, print \"Correct!\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "4"
+        ],
+        "description": "Say Correct! straight away when the answer is 4",
+        "expect": "correct"
+      },
+      {
+        "inputs": [
+          "5",
+          "3",
+          "4"
+        ],
+        "description": "Keep asking after wrong answers, then say Correct!",
+        "expect": "correct"
+      },
+      {
+        "inputs": [
+          "1",
+          "1",
+          "1",
+          "4"
+        ],
+        "description": "Keep asking until the answer is 4",
+        "expect": "correct"
+      }
+    ]
+  },
+  {
+    "name": "Hello Again",
+    "code": "# Get a whole number from the user and store it in a variable called times\n# Repeat that many times (use for i in range(times))\n#     print \"Hello!\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "2"
+        ],
+        "description": "Print Hello! twice",
+        "expect": [
+          "hello",
+          "hello"
+        ],
+        "reject": "hello hello hello"
+      },
+      {
+        "inputs": [
+          "4"
+        ],
+        "description": "Print Hello! four times",
+        "expect": [
+          "hello",
+          "hello",
+          "hello",
+          "hello"
+        ],
+        "reject": "hello hello hello hello hello"
+      }
+    ]
+  },
+  {
+    "name": "Shopping Total",
+    "code": "# Make a list called prices that holds 2, 5 and 3\n# Make a variable called total and set it to 0\n# Repeat for each price in the list\n#     add the price to total\n# After the loop, print \"Total:\" and then total\n\n",
+    "tests": [
+      {
+        "inputs": [],
+        "description": "Print Total: 10",
+        "expect": "total 10"
+      }
+    ]
+  },
+  {
+    "name": "Age Group",
+    "code": "# Get a whole number from the user and store it in a variable called age\n# If age is less than 13\n#     print \"Child\"\n# Otherwise, if age is less than 20\n#     print \"Teenager\"\n# Otherwise\n#     print \"Adult\"\n\n",
+    "tests": [
+      {
+        "inputs": [
+          "8"
+        ],
+        "description": "Say Child",
+        "expect": "child",
+        "reject": "adult"
+      },
+      {
+        "inputs": [
+          "15"
+        ],
+        "description": "Say Teenager",
+        "expect": "teenager",
+        "reject": "child"
+      },
+      {
+        "inputs": [
+          "40"
+        ],
+        "description": "Say Adult",
+        "expect": "adult",
+        "reject": "teenager"
+      }
+    ]
+  }
+]
