@@ -61,7 +61,7 @@
   },
   {
     "name": "Times Table",
-    "code": "# Ask the user for a number and store it in a variable called number\n# Remember: input gives you text, so turn it into a whole number\n# Repeat for each value from 1 to 10\n#     work out number multiplied by the current value\n#     print the sum, for example: 3 x 4 = 12\n\n",
+    "code": "# Ask the user for a number and store it in a variable called number\n# Remember: input gives you text, so turn it into a whole number\n# Repeat for each value from 1 to 10\n#     print out number multiplied by the current value\n\n",
     "tests": [
       {
         "inputs": [
