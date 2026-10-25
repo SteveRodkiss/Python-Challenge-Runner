@@ -65,4 +65,4 @@ Open `editor.html` (serve the folder first, e.g. `python -m http.server`, then v
 - **input()**: the program re-runs with the answers so far (random is seeded so it repeats identically). Avoid relying on the clock in programs that use input().
 - **Stop** kills the worker, so endless loops can always be interrupted.
 - Needs internet access to load Monaco and Pyodide from jsDelivr. To run locally, serve the folder (e.g. `python -m http.server`); opening `index.html` via `file://` won't work.
-- Code is autosaved to `localStorage` when the browser allows it.
+- Code is autosaved to `localStorage` per challenge (keyed by challenge name), when the browser allows it. Unchanged starter code isn't stored, and **↺ Reset** restores a challenge's starter code. Renaming a challenge in the editor means students' saved code for the old name is no longer found.

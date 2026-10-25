@@ -25,6 +25,7 @@ const $ = (id) => document.getElementById(id);
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
   set(k, v) { try { localStorage.setItem(k, v); } catch { /* storage blocked in iframe */ } },
+  remove(k) { try { localStorage.removeItem(k); } catch { /* storage blocked in iframe */ } },
 };
 
 const params = new URLSearchParams(location.search);
@@ -33,6 +34,7 @@ let fontSize = Number(store.get("fontSize")) || 16;
 document.documentElement.dataset.theme = theme;
 
 const term = new Terminal($("terminal"));
+let current = null; // selected challenge
 let busy = false;
 let pythonReady = false;
 
@@ -42,7 +44,7 @@ const runner = new Runner({
 });
 
 const editor = await createEditor($("editor"), {
-  code: store.get("code") ?? DEFAULT_CODE,
+  code: DEFAULT_CODE,
   theme,
   fontSize,
 });
@@ -149,27 +151,39 @@ $("tab-debugger").onclick = () => showTab("debugger");
 $("tab-tests").onclick = () => showTab("tests");
 
 editor.addCommand(window.monaco.KeyMod.CtrlCmd | window.monaco.KeyCode.Enter, () => execute(false));
+
+// Code is saved per challenge (keyed by name); unchanged starter code isn't stored,
+// so later edits to a challenge's starter text still reach students.
+const codeKey = (c) => (c ? "code:" + c.name : "code");
 editor.onDidChangeModelContent(() => {
-  store.set("code", editor.getValue());
+  const code = editor.getValue();
+  if (current && code === current.code) store.remove(codeKey(current));
+  else store.set(codeKey(current), code);
   errorMarks.clear();
 });
 
 const select = $("examples");
 const challenges = await loadChallenges();
 challenges.forEach((c, i) => select.add(new Option(c.name, i)));
-const savedIndex = Number(store.get("challenge"));
-let current = challenges[savedIndex] ?? challenges[0] ?? null;
-if (current) {
-  select.value = challenges.indexOf(current);
-  if (store.get("code") === null) editor.setValue(current.code);
-}
-select.onchange = () => {
-  current = challenges[Number(select.value)] ?? null;
+current = challenges[Number(store.get("challenge"))] ?? challenges[0] ?? null;
+
+function showChallenge(challenge) {
+  current = challenge;
+  if (current) select.value = challenges.indexOf(current);
   store.set("challenge", select.value);
-  if (current) editor.setValue(current.code);
+  editor.setValue(store.get(codeKey(current)) ?? current?.code ?? store.get("code") ?? DEFAULT_CODE);
+  dbg.clear();
+  errorMarks.clear();
   $("tests-results").textContent = "";
   updateUi();
+}
+
+select.onchange = () => showChallenge(challenges[Number(select.value)] ?? null);
+$("btn-reset").onclick = () => {
+  if (!current) return;
+  if (confirm("Start this challenge again? Your code for it will be replaced.")) editor.setValue(current.code);
 };
+showChallenge(current);
 
 function setFont(size) {
   fontSize = Math.max(10, Math.min(32, size));
